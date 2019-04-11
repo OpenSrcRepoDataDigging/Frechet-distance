@@ -185,7 +185,7 @@ if __name__ == '__main__':
     getDistanceToAll(filename,outname+'OvR_Normal_Divide.csv',True,True)
     getDistanceToAll(filename,outname+'OvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
     getDistanceMatrix(filename,outname+'RvR_Normal_Divide.csv',True,True)
-    getDistanceMatrix(filename,outname+'RvR_Divide.csv',True,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
+    getDistanceMatrix(filename,outname+'RvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
 
     '''按照天为单位'''
     filename = 'files/alluxio_original.csv'
@@ -193,7 +193,7 @@ if __name__ == '__main__':
     getDistanceToAll(filename,outname+'OvR_Normal_Divide.csv',True,True)
     getDistanceToAll(filename,outname+'OvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
     getDistanceMatrix(filename,outname+'RvR_Normal_Divide.csv',True,True)
-    getDistanceMatrix(filename,outname+'RvR_Divide.csv',True,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
+    getDistanceMatrix(filename,outname+'RvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
 
     end = time.time()
     print("运行时间：" + str(end - start) + "s")
