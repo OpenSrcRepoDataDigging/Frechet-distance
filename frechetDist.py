@@ -71,7 +71,7 @@ def loadCSV(filename,isNormalize=True):
     if(isNormalize):
         for i in range(data.shape[1]):
             sum = data[data.shape[0] - 1, i]
-            # print("sum="+str(sum))
+            print("sum="+str(sum))
             for j in range(data.shape[0]-1):
                 data[j,i] = data[j,i]/sum
                 if(isNormalize):
@@ -175,12 +175,16 @@ def getDistanceMatrix(filename,savename,isNormalize=True,isDivide=True):
     out.close()
 
 
-
+import SumCSV
 if __name__ == '__main__':
     start = time.time()  # 计算程序运行时间
 
     '''按照周为单位'''
-    filename = 'files/alluxio.csv'
+    #filename = 'files/alluxio.csv'
+    filename = 'files/commitday.csv'
+    tmpfilename = 'files/sum_commitday.csv'
+    SumCSV.SumCSV(filename, tmpfilename)
+    filename = tmpfilename
     outname = 'outcomes/alluxio/alluxio'
     getDistanceToAll(filename,outname+'OvR_Normal_Divide.csv',True,True)
     getDistanceToAll(filename,outname+'OvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）
@@ -189,6 +193,10 @@ if __name__ == '__main__':
 
     '''按照天为单位'''
     filename = 'files/alluxio_original.csv'
+    filename = 'files/commitweek.csv'
+    tmpfilename = 'files/sum_commitweek.csv'
+    SumCSV.SumCSV(filename, tmpfilename)
+    filename = tmpfilename
     outname = 'outcomes/alluxio_original/alluxio_original'
     getDistanceToAll(filename,outname+'OvR_Normal_Divide.csv',True,True)
     getDistanceToAll(filename,outname+'OvR_Divide.csv',False,True) #不Normal是为了得到绝对距离（归一后相似度高 && 归一前值也高）

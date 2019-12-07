@@ -11,7 +11,7 @@ import numpy as np
 
 def loadCSV():
     # df = pd.read_csv('Git-Repository-Miner-Codes.csv')  # 这个会直接默认读取到这个Excel的第一个表单
-    df = pd.read_csv('alluxio.csv')  # 这个会直接默认读取到这个Excel的第一个表单
+    df = pd.read_csv('files/alluxio.csv')  # 这个会直接默认读取到这个Excel的第一个表单
     # df = pd.read_csv('java-2018f-homework.csv')  # 这个会直接默认读取到这个Excel的第一个表单
     data = np.array(df.loc[:, :])  # 主要数据，包含统计值
     # ---数据清洗，先归一化
@@ -64,7 +64,8 @@ if __name__ == '__main__':
 
     ax4 = fig.add_axes([0.1, 0.7, 0.8, 0.1], **axprops)
     ax4.imshow(x4.reshape((1, -1)), **barprops)
-
+    plt.savefig('barcode.png')
     plt.show()
+    
 
 
